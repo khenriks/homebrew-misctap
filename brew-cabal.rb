@@ -1,5 +1,7 @@
 require 'formula'
 
+# Formula to install brew-cabal command for Homebrew-cabal integration
+
 class BrewCabal < Formula
   homepage ''
   url 'https://raw.github.com/khenriks/homebrew-misctap/bin/brew-cabal', :using => :nounzip
