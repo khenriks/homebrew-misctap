@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ -z "$1" ] ; then
+    echo "A package name is required."
+    exit 1
+fi
+
+CELLAR=$(brew --cellar)
+NAME=$1
+VERSION=$(cabal list "$NAME" --simple-output | grep "^$NAME\s" | sed 's/[^ ]* //' | tail -n 1)
+
+PREFIX="$CELLAR/$NAME/$VERSION"
+
+if [ -z "$VERSION" ] ; then
+    echo "The package $NAME could not be found."
+    exit 1
+fi
+
+if [ -d "$PREFIX" ] ; then
+    echo "Package $NAME version $VERSION is already installed in $PREFIX."
+    exit 1
+fi
+
+echo "Installing $NAME in $PREFIX..."
+
+cabal install --prefix="$PREFIX" "$NAME-$VERSION"
+
+brew link "$NAME"
