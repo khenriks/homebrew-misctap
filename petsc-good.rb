@@ -2,8 +2,8 @@ require 'formula'
 
 class PetscGood < Formula
   homepage 'http://www.mcs.anl.gov/petsc/index.html'
-  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.4.3.tar.gz'
-  sha1 '8c5d97ba4a28ea8fa830e513a9dcbfd61b51beaf'
+  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.4.4.tar.gz'
+  sha1 '2f507195a3142eb0599e78a909446175a597480a'
   head 'https://bitbucket.org/petsc/petsc', :using => :git
 
   option 'with-debug', "Compile with debugging enabled"
